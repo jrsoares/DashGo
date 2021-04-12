@@ -1,65 +1,27 @@
-import { Flex, Input, Button, Stack, FormLabel, FormControl } from '@chakra-ui/react'
+import { Flex, Button, Stack } from "@chakra-ui/react";
+import { Input } from "../components/Form/Input";
 
-export default function Home() {
+export default function SignIn() {
   return (
-   <Flex
-     w="100vw"
-     h="100vh"
-     justifyContent="center"
-     alignItems="center">
+    <Flex w="100vw" h="100vh" justifyContent="center" alignItems="center">
       <Flex
-         as="form"
-         width="100%"
-         maxWidth="360"
-         background="gray.800"
-         padding="8"
-         borderRadius="8"
-         flexDirection="column"
+        as="form"
+        width="100%"
+        maxWidth="360"
+        background="gray.800"
+        padding="8"
+        borderRadius="8"
+        flexDirection="column"
       >
         <Stack spacing="4">
-          <FormControl>
-            <FormLabel htmlFor="email">E-mail</FormLabel>
-            <Input
-              name="email"
-              type="email"
-              id="email"
-              focusBorderColor="pink.500"
-              background="gray.900"
-              variant="filled"
-              _hover={{ 
-                backgroundColor: "gray.900"
-              }}
-              size="lg"
-              
-            />
-          </FormControl>
-          
-          <FormControl>
-            <FormLabel htmlFor="password">Senha</FormLabel>
-              <Input
-                name="password"
-                type="password"
-                id="password"
-                focusBorderColor="pink.500"
-                background="gray.900"
-                variant="filled"
-                _hover={{ 
-                  backgroundColor: "gray.900"
-                }}
-                size="lg"
-              />
-          </FormControl>       
+          <Input type="email" name="email" label="E-mail" />
+          <Input type="password" name="password" label="Senha" />
         </Stack>
 
-        <Button
-            type="submit"
-            marginTop="6"
-            colorScheme="pink"
-            size="lg"
-        >
-            Entrar
+        <Button type="submit" marginTop="6" colorScheme="pink" size="lg">
+          Entrar
         </Button>
-       </Flex>
-   </Flex>
-  )
+      </Flex>
+    </Flex>
+  );
 }
