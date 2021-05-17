@@ -11,8 +11,9 @@ export default function SignIn() {
   const { register, handleSubmit, formState } = useForm();
 
   const handleSignin: SubmitHandler<SignInFormData> = async (values) => {
+    const { errors } = formState;
+    console.log(errors);
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(values);
   };
   return (
     <Flex w="100vw" h="100vh" justifyContent="center" alignItems="center">
@@ -31,7 +32,7 @@ export default function SignIn() {
             type="email"
             name="email"
             label="E-mail"
-            {...register("email")}
+            {...register("email", { required: "Email obrigatório" })}
           />
           <Input
             type="password"
