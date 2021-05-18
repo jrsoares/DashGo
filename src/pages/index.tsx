@@ -19,6 +19,8 @@ export default function SignIn() {
     resolver: yupResolver(signInFormSchema),
   });
 
+  const { errors } = formState;
+
   const handleSignin: SubmitHandler<SignInFormData> = async (values) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -41,12 +43,14 @@ export default function SignIn() {
             type="email"
             name="email"
             label="E-mail"
+            error={errors.email}
             {...register("email")}
           />
           <Input
             type="password"
             name="password"
             label="Senha"
+            error={errors.password}
             {...register("password")}
           />
         </Stack>

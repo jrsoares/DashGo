@@ -41,6 +41,9 @@ export default function UserList() {
   const { register, handleSubmit, formState } = useForm<CreateUserFormData>({
     resolver: yupResolver(CreateUserFormSchema),
   });
+
+  const { errors } = formState;
+
   const handleCreateUser: SubmitHandler<CreateUserFormData> = async (
     values
   ) => {
@@ -66,12 +69,18 @@ export default function UserList() {
           <Divider my="6" borderColor="gray.700" />
           <VStack spacing="8">
             <SimpleGrid minChildWidth="240" spacing={["6", "8"]} w="100%">
-              <Input name="name" label="Nome completo" {...register("name")} />
+              <Input
+                name="name"
+                label="Nome completo"
+                {...register("name")}
+                error={errors.name}
+              />
               <Input
                 name="email"
                 type="email"
                 label="E-mail"
                 {...register("email")}
+                error={errors.email}
               />
             </SimpleGrid>
 
@@ -81,11 +90,13 @@ export default function UserList() {
                 type="password"
                 label="Senha"
                 {...register("password")}
+                error={errors.password}
               />
               <Input
                 name="password_confirmation"
                 type="password"
                 label="Confirmação da senha"
+                error={errors.password_confirmation}
               />
             </SimpleGrid>
           </VStack>
