@@ -4,8 +4,8 @@ import { api } from "../services/api";
 type User = {
   id: string;
   name: string;
-  email:string;
-  createdAt:string;
+  email: string;
+  createdAt: string;
 }
 
 export async function getUsers(): Promise<User[]>{
