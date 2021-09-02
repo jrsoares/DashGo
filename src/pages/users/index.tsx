@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -25,6 +25,7 @@ import Link from "next/link";
 import { useUsers } from "../../hooks/useUsers";
 
 export default function UserList() {
+  const [page, setpage] = useState(1);
   const { data, isLoading, isFetching, error } = useUsers();
 
   const isWideVersion = useBreakpointValue({
